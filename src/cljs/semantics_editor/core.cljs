@@ -8,9 +8,9 @@
             client-height (.-clientHeight (.-body js/document))]
         (-> svg (.setAttribute "width" client-width))
         (-> svg (.setAttribute "height" client-height))
-        (-> svg (.setAttribute "viewBox", "0 0 100 100"))
-        (set! (.-width (.-style svg)) client-width)
-        (set! (.-height (.-style svg)) client-height)
+        (-> svg (.setAttribute "viewBox", (str "0 0 " client-width " " client-height)))
+        (set! (.-width (.-style svg)) (str client-width "px"))
+        (set! (.-height (.-style svg)) (str client-height "px"))
         (set! (.-backgroundColor (.-style svg)) "violet")
         svg
     )
